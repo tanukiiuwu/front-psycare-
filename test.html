@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Test - PsyCare</title>
+  <link rel="stylesheet" href="panel.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <div class="header">
+    <div class="saludo-container">
+      <div class="saludo" id="saludo">Realizando Test</div>
+    </div>
+    <img src="logo.png" alt="PsyCare Logo" class="logo">
+    <div class="config-container">
+      <button class="config-icon" onclick="toggleMenu()"><i class="fas fa-cog"></i></button>
+      <div class="submenu" id="submenu">
+        <a href="#" onclick="cancelTest()"><i class="fas fa-times"></i> Cancelar Test</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="test-container">
+    <h1 id="test-title">Test</h1>
+    
+    <div class="progress-container">
+      <div class="progress-bar">
+        <div class="progress-fill" id="progress-bar"></div>
+      </div>
+      <span id="progress-text">0/0</span>
+    </div>
+    
+    <div class="question-card" id="question-container">
+      <!-- Preguntas se cargarán aquí -->
+    </div>
+    
+    <div class="test-navigation">
+      <button class="btn-secundario" id="prev-btn" disabled>
+        <i class="fas fa-arrow-left"></i> Anterior
+      </button>
+      <button class="btn-primario" id="next-btn">
+        Siguiente <i class="fas fa-arrow-right"></i>
+      </button>
+      <button class="btn-primario" id="submit-btn" style="display: none;">
+        <i class="fas fa-paper-plane"></i> Finalizar Test
+      </button>
+    </div>
+  </div>
+
+  <script src="test.js"></script>
+</body>
+</html>

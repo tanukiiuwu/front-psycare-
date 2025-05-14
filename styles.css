@@ -1,0 +1,84 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #d3e5e7; /* Fondo claro */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  flex-direction: column;
+}
+
+.container {
+  background: rgb(178, 206, 226);
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+}
+
+.logo {
+  width: 150px; /* Ajusta el tamaño del logo */
+  margin-bottom: 1.5rem;
+}
+
+h1 {
+  color: #6c63ff; /* Color lila para el texto */
+  margin-bottom: 1rem;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.auth-form input {
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 20px; /* Bordes redondeados */
+  font-size: 1rem;
+  outline: none;
+}
+
+.auth-form input:focus {
+  border-color: #6c63ff; /* Resaltar el borde del textbox con lila al enfocarlo */
+}
+
+.auth-form button {
+  padding: 12px;
+  background-color: #9c74e1; /* Lila suave */
+  color: white;
+  border: none;
+  border-radius: 20px; /* Bordes redondeados */
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s;
+}
+
+.auth-form button:hover {
+  background-color: #7a56b8; /* Lila más oscuro al pasar el ratón */
+}
+
+.error-message {
+  color: red;
+  font-size: 0.875rem;
+  text-align: center;
+}
+
+.login-link {
+  margin-top: 1.5rem;
+  font-size: 1rem;
+  color: #6c63ff;
+}
+
+.login-link a {
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.login-link a:hover {
+  text-decoration: underline;
+}

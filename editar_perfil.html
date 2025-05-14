@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil de Usuario</title>
+    <link rel="stylesheet" href="editar_perfil.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Mi Perfil</h1>
+        <div id="auth-message" class="auth-message"></div>
+        <form id="user-form">
+            <label>
+                Nombre:
+                <input type="text" name="name" required>
+            </label>
+            <label>
+                Email:
+                <input type="email" name="email" required>
+            </label>
+            <label>
+                Biografía:
+                <textarea name="bio" rows="4"></textarea>
+            </label>
+            <label>
+                Pronombres:
+                <input type="text" name="pronouns" placeholder="ej: él/ella">
+            </label>
+            <label>
+                Edad:
+                <input type="number" name="age" min="1">
+            </label>
+
+            <div class="buttons">
+                <button type="submit">Guardar Cambios</button>
+                <button type="button" id="get-user">Obtener Perfil</button>
+                <button type="button" id="delete-user" class="danger">Eliminar Cuenta</button>
+            </div>
+        </form>
+        <div id="response" class="response"></div>
+    </div>
+    <script src="perfil.js"></script>
+</body>
+</html>

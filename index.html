@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <img src="logo.png" alt="PsyCare Logo" class="logo">
+  <title>PsyCare - Registro</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Registro en PsyCare</h1>
+    <form id="register-form" class="auth-form">
+      <div class="form-group">
+        <label for="register-name">Nombre completo</label>
+        <input type="text" id="register-name" required minlength="3">
+      </div>
+      <div class="form-group">
+        <label for="register-email">Correo electrónico</label>
+        <input type="email" id="register-email" required>
+      </div>
+      <div class="form-group">
+        <label for="register-password">Contraseña</label>
+        <input type="password" id="register-password" required minlength="6">
+      </div>
+      <button type="submit" id="register-button">Registrarse</button>
+      <div id="error-message" class="error-message"></div>
+    </form>
+    <div class="login-link">
+      ¿Ya tienes cuenta? <a href="login.html">Inicia sesión</a>
+    </div>
+  </div>
+  <script src="auth.js"></script>
+</body>
+</html>

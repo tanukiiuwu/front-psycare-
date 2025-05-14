@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Panel de Paciente - PsyCare</title>
+  <link rel="stylesheet" href="panel.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <div class="header">
+    <div class="saludo-container">
+      <div class="saludo" id="saludo">Cargando...</div>
+    </div>
+
+    <img src="logo.png" alt="PsyCare Logo" class="logo" />
+
+    <div class="config-container">
+      <button class="config-icon" onclick="toggleMenu()"><i class="fas fa-cog"></i></button>
+      <div class="submenu" id="submenu">
+        <a href="editar_perfil.html"><i class="fas fa-user-edit"></i> Editar perfil</a>
+        <a href="configuracion.html"><i class="fas fa-cogs"></i> Configuración</a>
+        <a href="#" onclick="logout()"><i class="fas fa-sign-out-alt"></i> Cerrar sesión</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Menú de navegación -->
+  <nav class="panel-menu">
+    <button class="menu-btn active" data-section="foro"><i class="fas fa-comments"></i> Foro</button>
+    <button class="menu-btn" data-section="registros"><i class="fas fa-heartbeat"></i> Registros</button>
+    <button class="menu-btn" data-section="test"><i class="fas fa-clipboard-check"></i> Tests</button>
+    <button class="menu-btn" data-section="alertas"><i class="fas fa-bell"></i> Alertas</button>
+  </nav>
+
+  <!-- Contenido del panel -->
+  <div class="panel-content">
+    <!-- Sección del Foro -->
+    <div class="seccion active" id="foro">
+      <div class="foro-acciones">
+        <div class="filtro-container">
+          <select class="filtro-select" id="filtro-foro">
+            <option value="recientes">Más recientes</option>
+            <option value="populares">Más populares</option>
+            <option value="mis-entradas">Mis entradas</option>
+          </select>
+          <i class="fas fa-filter"></i>
+        </div>
+        <button class="btn-primario" id="nueva-entrada-btn"><i class="fas fa-plus"></i> Nueva Entrada</button>
+      </div>
+
+      <div class="form-entrada" id="form-entrada">
+        <h3><i class="fas fa-pen-alt"></i> Crear nueva entrada</h3>
+        <input type="text" id="entrada-titulo" placeholder="Título" required>
+        <textarea id="entrada-contenido" placeholder="Escribe tu entrada aquí..." required></textarea>
+        <div class="form-botones">
+          <button class="btn-secundario" id="cancelar-entrada"><i class="fas fa-times"></i> Cancelar</button>
+          <button class="btn-primario" id="publicar-entrada"><i class="fas fa-paper-plane"></i> Publicar</button>
+        </div>
+      </div>
+
+      <div class="lista-entradas" id="lista-entradas">
+        <!-- Las entradas del foro se cargarán aquí -->
+        <div class="skeleton-loader">
+          <div class="skeleton-line" style="width: 70%"></div>
+          <div class="skeleton-line" style="width: 100%"></div>
+          <div class="skeleton-line" style="width: 50%"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sección de Registros Emocionales -->
+    <div class="seccion" id="registros">
+      <div class="seccion-header">
+        <h2><i class="fas fa-heartbeat"></i> Registros Emocionales</h2>
+        <button class="btn-primario" onclick="nuevoRegistro()"><i class="fas fa-plus"></i> Nuevo Registro</button>
+      </div>
+      <div id="lista-registros" class="lista-registros">
+        <div class="skeleton-loader">
+          <div class="skeleton-line" style="width: 60%"></div>
+          <div class="skeleton-line" style="width: 80%"></div>
+          <div class="skeleton-line" style="width: 40%"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sección de Test Psicológicos -->
+    <div class="seccion" id="test">
+      <h2><i class="fas fa-clipboard-check"></i> Test Psicológicos</h2>
+      <div class="test-container">
+        <div class="test-card" onclick="iniciarTest('ansiedad')">
+          <div class="test-icon"><i class="fas fa-heartbeat"></i></div>
+          <h3>Test de Ansiedad</h3>
+          <p>Evalúa tus niveles de ansiedad</p>
+          <button class="btn-test">Realizar test</button>
+        </div>
+        <div class="test-card" onclick="iniciarTest('depresion')">
+          <div class="test-icon"><i class="fas fa-cloud"></i></div>
+          <h3>Test de Depresión</h3>
+          <p>Evalúa posibles síntomas depresivos</p>
+          <button class="btn-test">Realizar test</button>
+        </div>
+        <div class="test-card" onclick="iniciarTest('estres')">
+          <div class="test-icon"><i class="fas fa-running"></i></div>
+          <h3>Test de Estrés</h3>
+          <p>Mide tus niveles de estrés actual</p>
+          <button class="btn-test">Realizar test</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sección de Alertas -->
+    <div class="seccion" id="alertas">
+      <div class="seccion-header">
+        <h2><i class="fas fa-bell"></i> Alertas</h2>
+        <button class="btn-primario" onclick="nuevaAlerta()"><i class="fas fa-plus"></i> Nueva Alerta</button>
+      </div>
+      <div id="lista-alertas" class="lista-alertas">
+        <div class="skeleton-loader">
+          <div class="skeleton-line" style="width: 50%"></div>
+          <div class="skeleton-line" style="width: 70%"></div>
+          <div class="skeleton-line" style="width: 30%"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="notification" id="notification"></div>
+
+  <footer class="site-footer">
+    <div class="footer-content">
+     
+        <span class="footer-brand">PsyCare 2025</span>
+      </div>
+      
+      <div class="footer-links">
+        <a href="mailto:contacto@psycare.com" class="footer-link email-link">
+          <i class="fas fa-envelope"></i> contacto@psycare.com
+        </a>
+        
+        <a href="politica-privacidad.pdf" target="_blank" class="footer-link privacy-link">
+          <i class="fas fa-shield-alt"></i> Aviso de Privacidad
+        </a>
+      </div>
+    </div>
+    
+    <div class="footer-copyright">
+      <p>© 2025 PsyCare. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+  <script src="panel.js"></script>
+</body>
+</html>

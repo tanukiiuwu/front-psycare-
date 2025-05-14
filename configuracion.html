@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configuración de Usuario</title>
+    <link rel="stylesheet" href="configuracion.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Configuración</h1>
+        <div id="auth-message" class="auth-message"></div>
+        <form id="settings-form">
+            <h2>Notificaciones</h2>
+            <label>
+                <input type="checkbox" name="email" checked> Email
+            </label>
+            <label>
+                <input type="checkbox" name="sms"> SMS
+            </label>
+
+            <h2>Privacidad</h2>
+            <label>
+                <input type="checkbox" name="profile_visible" checked> Perfil visible
+            </label>
+            <label>
+                <input type="checkbox" name="share_activity"> Compartir actividad
+            </label>
+
+            <div class="buttons">
+                <button type="submit">Guardar</button>
+                <button type="button" id="get-settings">Obtener Configuración</button>
+                <button type="button" id="delete-settings" class="danger">Eliminar Configuración</button>
+            </div>
+        </form>
+        <div id="response" class="response"></div>
+    </div>
+    <script src="confi.js"></script>
+</body>
+</html>
